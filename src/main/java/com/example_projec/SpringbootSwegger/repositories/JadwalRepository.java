@@ -1,26 +1,28 @@
 package com.example_projec.SpringbootSwegger.repositories;
 
-import com.example_projec.SpringbootSwegger.models.Mahasiswa;
-import com.example_projec.SpringbootSwegger.models.MataKuliah;
+import com.example_projec.SpringbootSwegger.models.Dosen;
+import com.example_projec.SpringbootSwegger.models.Jadwal;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 @Repository
 @Transactional
-public interface MataKuliahRepository extends JpaRepository<MataKuliah, Long> {
-    @Query("SELECT mk from MataKuliah mk ")
-    List<MataKuliah> getAllData();
+public interface JadwalRepository extends JpaRepository<Jadwal, Long> {
+    @Query("SELECT jdl from Jadwal jdl ")
+    List<Jadwal> getAll();
 
-    @Query("SELECT mk FROM MataKuliah mk WHERE mk.id = :id")
-    MataKuliah getById(Long id);
+    @Query("SELECT jdl from Jadwal jdl WHERE jdl.id = :id")
+    Jadwal getById(Long id);
 
     @Modifying
     @Transactional
-    @Query("DELETE FROM MataKuliah mk WHERE mk.id = :id")
+    @Query("DELETE FROM Jadwal jdl WHERE jdl.id = :id")
     void deleteById(@Param("id") Long id);
+
 }

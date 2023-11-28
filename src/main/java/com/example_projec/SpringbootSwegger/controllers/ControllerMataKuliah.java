@@ -3,36 +3,38 @@ package com.example_projec.SpringbootSwegger.controllers;
 import com.example_projec.SpringbootSwegger.models.MataKuliah;
 import com.example_projec.SpringbootSwegger.services.MataKuliahService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/matakuliah")
 public class ControllerMataKuliah {
+
     @Autowired
-    private MataKuliahService matakuliahService;
+    private MataKuliahService mataKuliahService;
 
     @GetMapping
-    public List<MataKuliah> getAllMataKuliah() {return matakuliahService.getAllMataKuliah();
+    public List<MataKuliah> getAll() {return mataKuliahService.getAll();
     }
 
     @GetMapping("/{id}")
-    public MataKuliah getMataKuliahByNim(@PathVariable Long id) {
-        return matakuliahService.getMataKuliahById(id);
+    public MataKuliah getById(@PathVariable Long id) {
+        return mataKuliahService.getById(id);
     }
 
     @PostMapping
     public void addMataKuliah(@RequestBody MataKuliah matakuliah) {
-        matakuliahService.addMataKuliah(matakuliah);
+        mataKuliahService.addMataKuliah(matakuliah);
     }
 
     @PutMapping("/{id}")
     public void updateMataKuliah(@PathVariable Long id, @RequestBody MataKuliah matakuliah) {
-        matakuliahService.updateMataKuliah(id, matakuliah);
+        mataKuliahService.updateMataKuliah(id, matakuliah);
     }
 
     @DeleteMapping("/{id}")
     public void deleteMataKuliah(@PathVariable Long id) {
-        matakuliahService.deleteMataKuliah(id);
+        mataKuliahService.deleteMataKuliah(id);
     }
 }

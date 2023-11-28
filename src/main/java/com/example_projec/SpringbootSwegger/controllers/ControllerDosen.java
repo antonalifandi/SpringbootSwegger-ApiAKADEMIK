@@ -10,18 +10,17 @@ import java.util.List;
 @RequestMapping("/api/dosen")
 public class ControllerDosen {
 
-    @Autowired
+   @Autowired
     private DosenService dosenService;
-
     @GetMapping
-    public List<Dosen> getAllDosen() {
-        return dosenService.getAllDosen();
+    public List<Dosen> getAll() {return dosenService.getAll();
     }
 
     @GetMapping("/{nip}")
-    public Dosen getDosenByNip(@PathVariable Long nip) {
-        return dosenService.getDosenByNip(nip);
+    public Dosen getByNip(@PathVariable Long nip) {
+        return dosenService.getByNip(nip);
     }
+
 
     @PostMapping
     public void addDosen(@RequestBody Dosen dosen) {

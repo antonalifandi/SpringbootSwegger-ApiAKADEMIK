@@ -28,18 +28,16 @@ public class Dosen {
     private String tgl_lahir;
     private String alamat;
     private String email;
-    private Integer telpon;
-    @Schema(hidden = true)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "deleted_flag")
+    private Long telpon;
     private Integer deleted_flag;
 
-    public Dosen(Long nip, String nama, String tgl_lahir, String alamat, String email, Integer telpon) {
+    public Dosen(Long nip, String nama, String tgl_lahir, String alamat, String email, Long telpon, Integer deleted_flag) {
         this.nip = nip;
         this.nama = nama;
         this.tgl_lahir = tgl_lahir;
         this.alamat = alamat;
         this.email = email;
         this.telpon = telpon;
+        this.deleted_flag = deleted_flag;
     }
 }

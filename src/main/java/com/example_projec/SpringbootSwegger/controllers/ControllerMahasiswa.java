@@ -14,17 +14,17 @@ public class ControllerMahasiswa {
     private MahasiswaService mahasiswaService;
 
     @GetMapping
-    public List<Mahasiswa> getAllMahasiswa() {return mahasiswaService.getAllMahasiswa();
+    public List<Mahasiswa> getAll() {return mahasiswaService.getAll();
     }
 
     @GetMapping("/{nim}")
-    public Mahasiswa getMahasiswaByNim(@PathVariable Long nim) {
-        return mahasiswaService.getMahasiswaByNim(nim);
+    public Mahasiswa getByNim(@PathVariable Long nim) {
+        return mahasiswaService.getByNim(nim);
     }
 
     @PostMapping
     public void addMahasiswa(@RequestBody Mahasiswa mahasiswa) {
-        mahasiswaService.addMahasiswa(mahasiswa);
+       mahasiswaService.addMahasiswa(mahasiswa);
     }
 
     @PutMapping("/{nim}")

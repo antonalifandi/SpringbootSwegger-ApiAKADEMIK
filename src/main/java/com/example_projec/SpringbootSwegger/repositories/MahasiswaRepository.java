@@ -12,12 +12,22 @@ import java.util.List;
 @Repository
 @Transactional
 public interface MahasiswaRepository extends JpaRepository<Mahasiswa, Long> {
-    @Modifying
-   @Query("Update Mahasiswa m SET m.deleted_flag = 1  WHERE m.nim=:id")
-    void deleteMahasiswa( @Param("id") Long id);
 
-    @Query("SELECT new com.example_projec.SpringbootSwegger.models.Mahasiswa(m.nim, m.nama, m.tgl_lahir, m.alamat_mhs, m.email, m.telpon) FROM Mahasiswa m WHERE m.deleted_flag <> :deleted_flag")
-    List<Mahasiswa> findByDeletedFlagNot(@Param("deleted_flag") int deleted_flag);
+    @Query("SELECT m from Mahasiswa m ")
+    List<Mahasiswa> getAllData();
+
+    @Query("SELECT m FROM Mahasiswa m WHERE m.nim = :nim")
+    Mahasiswa getByNim(Long nim);
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM Mahasiswa m WHERE m.nim = :nim")
+    void deleteByNim(@Param("nim") Long nim);
+
+
+
+
+
 
 
 

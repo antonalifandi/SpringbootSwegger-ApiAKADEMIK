@@ -26,16 +26,14 @@ public class MataKuliah {
     private Long id;
     private String nama_matkul;
     private Integer sks;
-    private Integer kode;
-    @Schema(hidden = true)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "deleted_flag")
+    private String kode;
     private Integer deleted_flag;
 
-    public MataKuliah(Long id, String nama_matkul, Integer sks, Integer kode) {
+    public MataKuliah(Long id, String nama_matkul, Integer sks, String kode, Integer deleted_flag) {
         this.id = id;
         this.nama_matkul = nama_matkul;
         this.sks = sks;
         this.kode = kode;
+        this.deleted_flag = deleted_flag;
     }
 }

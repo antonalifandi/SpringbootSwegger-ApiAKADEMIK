@@ -28,18 +28,16 @@ public class Mahasiswa {
     private String tgl_lahir;
     private String alamat_mhs;
     private String email;
-    private Integer telpon;
-    @Schema(hidden = true)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "deleted_flag")
+    private Long telpon;
     private Integer deleted_flag;
 
-    public Mahasiswa(Long nim, String nama, String tgl_lahir, String alamat_mhs, String email, Integer telpon) {
+    public Mahasiswa(Long nim, String nama, String tgl_lahir, String alamat_mhs, String email, Long telpon, Integer deleted_flag ) {
         this.nim = nim;
         this.nama = nama;
         this.tgl_lahir = tgl_lahir;
         this.alamat_mhs = alamat_mhs;
         this.email = email;
         this.telpon = telpon;
+        this.deleted_flag = deleted_flag;
     }
 }
