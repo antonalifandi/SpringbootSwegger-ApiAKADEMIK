@@ -12,7 +12,7 @@ public interface JadwalService {
     List<Jadwal> getAllJadwals();
     Jadwal getById(Long id);
     Jadwal addJadwal(Jadwal jadwal);
-    void updateJadwal(Long id, Jadwal jadwal);
+    void updateJadwal(Jadwal jadwal);
     String deleteJadwal(Long id);
 
 }

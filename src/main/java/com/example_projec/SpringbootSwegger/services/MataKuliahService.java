@@ -11,7 +11,7 @@ public interface MataKuliahService {
     public List<MataKuliah> getAll();
     MataKuliah getById(Long id);
     MataKuliah addMataKuliah(MataKuliah matakuliah);
-    void updateMataKuliah(Long id, MataKuliah matakuliah);
+    void updateMataKuliah(MataKuliah matakuliah);
     String deleteMataKuliah(Long id);
 
 }

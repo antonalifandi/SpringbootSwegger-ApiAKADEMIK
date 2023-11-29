@@ -29,8 +29,8 @@ public class MataKuliahServiceImpl implements MataKuliahService  {
         return matakuliah;
     }
 
-    public void updateMataKuliah(Long id, MataKuliah updatedMataKuliah) {
-        Optional<MataKuliah> optionalMataKuliah = matakuliahRepository.findById(id);
+    public void updateMataKuliah(MataKuliah updatedMataKuliah) {
+        Optional<MataKuliah> optionalMataKuliah = matakuliahRepository.findById(updatedMataKuliah.getId());
         if (optionalMataKuliah.isPresent()) {
             MataKuliah existingMataKuliah = optionalMataKuliah.get();
             existingMataKuliah.setNama_matkul(updatedMataKuliah.getNama_matkul());

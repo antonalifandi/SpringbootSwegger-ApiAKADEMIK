@@ -13,7 +13,7 @@ public interface DosenService {
     public List<Dosen> getAll();
     Dosen getByNip(Long nip);
     Dosen addDosen(Dosen dosen);
-    void updateDosen(Long nip, Dosen dosen);
+    void updateDosen(Dosen dosen);
     String deleteDosen(Long nip);
 }
 

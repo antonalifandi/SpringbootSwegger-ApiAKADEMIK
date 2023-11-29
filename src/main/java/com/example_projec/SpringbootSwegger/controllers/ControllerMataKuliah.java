@@ -3,7 +3,6 @@ package com.example_projec.SpringbootSwegger.controllers;
 import com.example_projec.SpringbootSwegger.models.MataKuliah;
 import com.example_projec.SpringbootSwegger.services.MataKuliahService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -24,17 +23,23 @@ public class ControllerMataKuliah {
     }
 
     @PostMapping
-    public void addMataKuliah(@RequestBody MataKuliah matakuliah) {
+    public MataKuliah addMataKuliah(@RequestBody MataKuliah matakuliah) {
         mataKuliahService.addMataKuliah(matakuliah);
+        return matakuliah;
     }
 
-    @PutMapping("/{id}")
-    public void updateMataKuliah(@PathVariable Long id, @RequestBody MataKuliah matakuliah) {
-        mataKuliahService.updateMataKuliah(id, matakuliah);
+    @PutMapping("")
+    public MataKuliah updateMataKuliah(@RequestBody MataKuliah matakuliah) {
+        mataKuliahService.updateMataKuliah(matakuliah);
+        return matakuliah;
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMataKuliah(@PathVariable Long id) {
-        mataKuliahService.deleteMataKuliah(id);
-    }
+    public MataKuliah deleteMataKuliah(@PathVariable Long id) {
+        MataKuliah mk = mataKuliahService.getById(id);
+        if(mk != null){
+            mataKuliahService.deleteMataKuliah(id);
+        }
+        return mk;
+        }
 }

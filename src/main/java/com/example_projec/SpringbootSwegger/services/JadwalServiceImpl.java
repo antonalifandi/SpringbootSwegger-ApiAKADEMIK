@@ -29,8 +29,8 @@ public class JadwalServiceImpl implements JadwalService{
         jadwalRepository.save(jdl);
         return jadwal;
     }
-    public void updateJadwal(Long id, Jadwal updatedJadwal) {
-        Optional<Jadwal> optionalJadwal = jadwalRepository.findById(id);
+    public void updateJadwal(Jadwal updatedJadwal) {
+        Optional<Jadwal> optionalJadwal = jadwalRepository.findById(updatedJadwal.getId());
         if (optionalJadwal.isPresent()) {
             Jadwal existingJadwal = optionalJadwal.get();
             existingJadwal.setHari(updatedJadwal.getHari());

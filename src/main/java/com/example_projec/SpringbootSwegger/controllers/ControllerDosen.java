@@ -1,6 +1,7 @@
 package com.example_projec.SpringbootSwegger.controllers;
 
 import com.example_projec.SpringbootSwegger.models.Dosen;
+import com.example_projec.SpringbootSwegger.models.Mahasiswa;
 import com.example_projec.SpringbootSwegger.services.DosenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,17 +24,23 @@ public class ControllerDosen {
 
 
     @PostMapping
-    public void addDosen(@RequestBody Dosen dosen) {
+    public Dosen addDosen(@RequestBody Dosen dosen) {
         dosenService.addDosen(dosen);
+        return dosen;
     }
 
-    @PutMapping("/{nip}")
-    public void updateDosen(@PathVariable Long nip, @RequestBody Dosen dosen) {
-        dosenService.updateDosen(nip, dosen);
+    @PutMapping("")
+    public Dosen updateDosen(@RequestBody Dosen dosen) {
+        dosenService.updateDosen(dosen);
+        return dosen;
     }
 
     @DeleteMapping("/{nip}")
-    public void deleteDosen(@PathVariable Long nip) {
-        dosenService.deleteDosen(nip);
+    public Dosen deleteDosen(@PathVariable Long nip) {
+        Dosen dsn = dosenService.getByNip(nip);
+        if (dsn != null) {
+            dosenService.deleteDosen(nip);
+        }
+        return dsn;
     }
 }

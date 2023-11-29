@@ -13,7 +13,7 @@ public interface MahasiswaService {
     public List<Mahasiswa> getAll();
     Mahasiswa getByNim(Long nim);
     Mahasiswa addMahasiswa(Mahasiswa mahasiswa);
-    void updateMahasiswa(Long nim, Mahasiswa mahasiswa);
+    void updateMahasiswa(Mahasiswa mahasiswa);
     String deleteMahasiswa(Long nim);
 
 }

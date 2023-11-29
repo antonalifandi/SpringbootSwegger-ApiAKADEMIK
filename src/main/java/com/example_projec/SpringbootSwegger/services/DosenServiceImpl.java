@@ -28,8 +28,8 @@ public class DosenServiceImpl implements DosenService{
         return dosen;
     }
 
-    public void updateDosen(Long nip, Dosen updatedDosen) {
-        Optional<Dosen> optionalDosen = dosenRepository.findById(nip);
+    public void updateDosen(Dosen updatedDosen) {
+        Optional<Dosen> optionalDosen = dosenRepository.findById(updatedDosen.getNip());
         if (optionalDosen.isPresent()) {
             Dosen existingDosen = optionalDosen.get();
             existingDosen.setNama(updatedDosen.getNama());

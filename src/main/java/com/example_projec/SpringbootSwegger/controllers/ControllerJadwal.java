@@ -1,11 +1,8 @@
 package com.example_projec.SpringbootSwegger.controllers;
 
-import com.example_projec.SpringbootSwegger.models.Dosen;
 import com.example_projec.SpringbootSwegger.models.Jadwal;
 import com.example_projec.SpringbootSwegger.services.JadwalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -25,15 +22,23 @@ public class ControllerJadwal {
         return jadwalService.getById(id);
     }
     @PostMapping
-    public void addJadwal(@RequestBody Jadwal jadwal) {
+    public Jadwal addJadwal(@RequestBody Jadwal jadwal) {
         jadwalService.addJadwal(jadwal);
+        return jadwal;
     }
 
-    @PutMapping("/{id}")
-    public void updateJadwal(@PathVariable Long id, @RequestBody Jadwal jadwal) {jadwalService.updateJadwal(id, jadwal);
+    @PutMapping("")
+    public Jadwal updateJadwal(@RequestBody Jadwal jadwal) {
+        jadwalService.updateJadwal(jadwal);
+        return jadwal;
     }
 
     @DeleteMapping("/{id}")
-    public void deleteJadwal(@PathVariable Long id) {jadwalService.deleteJadwal(id);
+    public Jadwal deleteJadwal(@PathVariable Long id) {
+        Jadwal jdl = jadwalService.getById(id);
+        if(jdl != null){
+            jadwalService.deleteJadwal(id);
+        }
+        return jdl;
     }
 }

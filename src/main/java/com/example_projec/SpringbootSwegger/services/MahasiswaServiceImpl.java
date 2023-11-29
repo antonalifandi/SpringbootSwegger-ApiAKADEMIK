@@ -29,8 +29,8 @@ public class MahasiswaServiceImpl implements MahasiswaService {
         return mahasiswa;
     }
 
-    public void updateMahasiswa(Long nim, Mahasiswa updatedMahasiswa) {
-        Optional<Mahasiswa> optionalMahasiswa = mahasiswaRepository.findById(nim);
+    public void updateMahasiswa(Mahasiswa updatedMahasiswa) {
+        Optional<Mahasiswa> optionalMahasiswa = mahasiswaRepository.findById(updatedMahasiswa.getNim());
         if (optionalMahasiswa.isPresent()) {
             Mahasiswa existingMahasiswa = optionalMahasiswa.get();
             existingMahasiswa.setNama(updatedMahasiswa.getNama());
