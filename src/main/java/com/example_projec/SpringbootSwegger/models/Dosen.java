@@ -1,8 +1,7 @@
 package com.example_projec.SpringbootSwegger.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -23,12 +22,14 @@ import lombok.ToString;
 public class Dosen {
 
     @Id
+    @JsonIgnore
     private Long nip;
     private String nama;
     private String tgl_lahir;
     private String alamat;
     private String email;
     private Long telpon;
+    @JsonIgnore
     private Integer deleted_flag;
 
     public Dosen(Long nip, String nama, String tgl_lahir, String alamat, String email, Long telpon, Integer deleted_flag) {
